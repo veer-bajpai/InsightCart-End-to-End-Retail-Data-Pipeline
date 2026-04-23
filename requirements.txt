@@ -1,0 +1,37 @@
+# ============================================================
+# InsightCart: End-to-End Retail Data Pipeline
+# Python Dependencies
+# ============================================================
+# Install all dependencies with:
+#   pip install -r requirements.txt
+# ============================================================
+
+# ── Core Data Manipulation ───────────────────────────────────
+pandas==2.2.2
+numpy==1.26.4
+
+# ── Database Connectivity ────────────────────────────────────
+sqlalchemy==2.0.30
+psycopg2-binary==2.9.9      # PostgreSQL adapter (binary = no local build required)
+python-dotenv==1.0.1        # Load DB credentials from .env file
+
+# ── Data Visualization ───────────────────────────────────────
+matplotlib==3.8.4
+seaborn==0.13.2
+
+# ── Jupyter Environment ──────────────────────────────────────
+jupyter==1.0.0
+notebook==7.2.0
+ipykernel==6.29.4
+
+# ── Statistical Analysis ─────────────────────────────────────
+scipy==1.13.0
+
+# ── Data Quality & Profiling ─────────────────────────────────
+ydata-profiling==4.8.3      # Automated EDA report generation
+missingno==0.5.2             # Missing data visualization
+
+# ── Utility ──────────────────────────────────────────────────
+tqdm==4.66.4                 # Progress bars for long operations
+openpyxl==3.1.2              # Excel export support (optional)
+tabulate==0.9.0              # Pretty-print DataFrames in terminal
