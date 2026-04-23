@@ -1,6 +1,6 @@
 # 🛒 InsightCart: End-to-End Retail Data Pipeline
 
-> **Transforming 3,900 retail transactions into actionable business intelligence — from raw CSV to interactive Power BI dashboard — using Python, PostgreSQL, and SQL analytics.**
+> **Transforming 3,900 retail transactions into actionable business intelligence — from raw CSV to interactive Power BI dashboard — using Python, MySQL, and SQL analytics.**
 
 ---
 
@@ -43,7 +43,7 @@ Raw CSV Dataset (3,900 rows × 18 columns)
          │
          ▼
 ┌─────────────────────┐
-│  PostgreSQL         │  ← Structured Storage, Schema Design,
+│  MySQL         │  ← Structured Storage, Schema Design,
 │  Data Warehouse     │    Business Transaction Simulation
 └────────┬────────────┘
          │
@@ -71,9 +71,9 @@ Raw CSV Dataset (3,900 rows × 18 columns)
 |---|---|---|
 | Data Ingestion | Python (Pandas) | Load, explore, and validate raw data |
 | Data Cleaning | Python (Pandas, NumPy) | Handle nulls, standardize schema, engineer features |
-| Data Storage | PostgreSQL | Relational database for structured querying |
-| ORM / Connector | SQLAlchemy + Psycopg2 | Python-to-PostgreSQL integration |
-| Analytics | SQL (PostgreSQL) | Business queries, KPIs, segmentation logic |
+| Data Storage | MySQL | Relational database for structured querying |
+| ORM / Connector | SQLAlchemy + Psycopg2 | Python-to-MySQL integration |
+| Analytics | SQL (MySQL) | Business queries, KPIs, segmentation logic |
 | Visualization | Power BI | Interactive dashboard for stakeholders |
 | Environment | Jupyter Notebook | Exploratory analysis and documentation |
 | Version Control | Git + GitHub | Project tracking and portfolio hosting |
@@ -105,14 +105,14 @@ Raw CSV Dataset (3,900 rows × 18 columns)
 - Imputed missing `Review Rating` values using **per-category median** to preserve statistical integrity
 - Renamed all columns to `snake_case` for SQL compatibility
 - Verified and resolved redundancy between `discount_applied` and `promo_code_used` — dropped the latter
-- Exported cleaned DataFrame to PostgreSQL
+- Exported cleaned DataFrame to MySQL
 
 ### Step 2 — Feature Engineering (Python)
 - `age_group` — Binned customer ages into: `Young Adult`, `Adult`, `Middle-aged`, `Senior`
 - `purchase_frequency_days` — Derived numeric frequency metric from categorical purchase cadence
 
-### Step 3 — Database Integration (PostgreSQL)
-- Connected Python to PostgreSQL using `SQLAlchemy` + `psycopg2`
+### Step 3 — Database Integration (MySQL)
+- Connected Python to MySQL using `SQLAlchemy` + `psycopg2`
 - Loaded cleaned DataFrame into a structured relational table
 - Validated data integrity post-load
 
@@ -205,7 +205,7 @@ InsightCart-Retail-Pipeline/
 
 ### Prerequisites
 - Python 3.9+
-- PostgreSQL 14+ (running locally or via Docker)
+- MySQL 14+ (running locally or via Docker)
 - Power BI Desktop (for dashboard)
 
 ### 1. Clone the Repository
@@ -231,7 +231,7 @@ DB_USER=your_postgres_user
 DB_PASSWORD=your_postgres_password
 ```
 
-### 4. Set Up PostgreSQL Database
+### 4. Set Up MySQL Database
 ```bash
 psql -U your_postgres_user -c "CREATE DATABASE insightcart;"
 ```
@@ -240,13 +240,13 @@ psql -U your_postgres_user -c "CREATE DATABASE insightcart;"
 ```bash
 jupyter notebook notebooks/InsightCart_End-to-End_Retail_Data_Pipeline.ipynb
 ```
-> Run all cells sequentially. The notebook will clean the data, engineer features, and load everything into PostgreSQL automatically.
+> Run all cells sequentially. The notebook will clean the data, engineer features, and load everything into MySQL automatically.
 
 ### 6. Run SQL Queries
-Open `sql/business_queries.sql` in pgAdmin, DBeaver, or any PostgreSQL client and execute the queries against the `insightcart` database.
+Open `sql/business_queries.sql` in pgAdmin, DBeaver, or any MySQL client and execute the queries against the `insightcart` database.
 
 ### 7. Open Power BI Dashboard
-Open `dashboard/InsightCart_Dashboard.pbix` in **Power BI Desktop** and refresh the data source to point to your local PostgreSQL instance.
+Open `dashboard/InsightCart_Dashboard.pbix` in **Power BI Desktop** and refresh the data source to point to your local MySQL instance.
 
 ---
 
@@ -271,18 +271,17 @@ Open `dashboard/InsightCart_Dashboard.pbix` in **Power BI Desktop** and refresh 
 - [ ] **Real-time Dashboard** — Migrate Power BI to a Streamlit or Dash web app for browser-based access
 - [ ] **A/B Test Simulation** — Model the revenue impact of different discount thresholds using simulation
 - [ ] **API Layer** — Expose key insights via a FastAPI endpoint for integration with business tools
-- [ ] **Docker Compose** — Containerize the PostgreSQL + Jupyter environment for one-command setup
+- [ ] **Docker Compose** — Containerize the MySQL + Jupyter environment for one-command setup
 
 ---
 
 ## 👤 Author
 
-**[Your Name]**
+**Veer Bajpai**
 Data Engineer | Data Analyst | Python & SQL
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://linkedin.com/in/yourprofile)
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/yourusername)
-[![Portfolio](https://img.shields.io/badge/Portfolio-Visit-green?style=flat&logo=globe)](https://yourportfolio.com)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/veer-bajpai/)
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-black?style=flat&logo=github)](https://github.com/veer-bajpai)
 
 ---
 
